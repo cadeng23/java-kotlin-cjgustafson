@@ -23,7 +23,7 @@ public class Goshdarn {
     }
 
 
-    private double TotalCrap = 100.0; //Things that are stressing out the user.
+    private double TotalCrap; //Things that are stressing out the user.
 
     public double getTotalCrap(){
         if (haveBills()==true) {
@@ -37,9 +37,9 @@ public class Goshdarn {
 
     public boolean haveBills() { return MonthlyBills <= 1000.0;}
 
-    private double MoneyInBank = 98.85; // Money the user has (college student)
+    private double MoneyInBank; // Money the user has (college student)
 
-    public double MonthlyBills = 1000.0; //Total cost of monthly expenses
+    public double MonthlyBills; //Total cost of monthly expenses
 
     public double lowerstress(){return TotalCrap -= 30.0;}
 
