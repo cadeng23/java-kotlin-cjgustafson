@@ -7,21 +7,33 @@ package com.example.goshdarn;
 public class Goshdarn {
 
     public Goshdarn(double TotalCrap) {
-        if (TotalCrap > 100.0) {
-            //try stress relief techniques
-        } else if (TotalCrap < 200.0) {
-            // Screw it and go to a different county
+        getTotalCrap();
+        if (TotalCrap < 100.0) {
+            //acceptable range
+            String message = "You're ok! Your stress level is only" + TotalCrap + "!";
         } else if (TotalCrap > 200.0) {
-
+            // Screw it and go to a different county
+            String message = "Get a new id and move to Canada! It's time to drop everything!";
+        } else if (TotalCrap < 200.0) {
+            lowerstress();
+            String message = "Try and relax. You are at " + TotalCrap + ". You do not want to get worse!";
         } else {
-
+            String message = "Error!";
         }
     }
 
 
     private double TotalCrap = 100.0; //Things that are stressing out the user.
 
-    public double getTotalCrap(){return TotalCrap;}
+    public double getTotalCrap(){
+        if (haveBills()==true) {
+            TotalCrap += 50.0; //to account for bills
+        }
+        else {
+            TotalCrap += 20.0; //to account for homework
+        }
+        return TotalCrap;
+    }
 
     public boolean haveBills() { return MonthlyBills <= 1000.0;}
 
@@ -29,9 +41,6 @@ public class Goshdarn {
 
     public double MonthlyBills = 1000.0; //Total cost of monthly expenses
 
-    public double lowerstress(double TotalCrap) {
-        TotalCrap -= 30.0;
-        return TotalCrap;
-    }
+    public double lowerstress(){return TotalCrap -= 30.0;}
 
 }
