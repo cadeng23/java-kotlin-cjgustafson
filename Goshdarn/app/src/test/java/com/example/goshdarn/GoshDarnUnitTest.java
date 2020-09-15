@@ -9,6 +9,7 @@ public class GoshDarnUnitTest {
     @Test public void getTotalCrap() {
         double Crap = 120.5;
         Goshdarn instance = new Goshdarn(Crap);
+        assertEquals(Crap, instance.getTotalCrap(),0.0);
     }
 
     @Test public void haveBillsTrue() {
@@ -23,7 +24,7 @@ public class GoshDarnUnitTest {
         assertEquals(false, instance.haveBills());
     }
 
-    @Test public void MothlyBillsAmount(){
+    @Test public void MonthlyBillsAmount(){
         double Crap = 120.5;
         Goshdarn instance = new Goshdarn(Crap);
         double MonthlyBills = 1000.0;
@@ -34,6 +35,7 @@ public class GoshDarnUnitTest {
         double Crap = 120.5;
         Goshdarn instance = new Goshdarn(Crap);
         double MoneyInBank = 100.0;
+        assertEquals(MoneyInBank, instance.MoneyInBankCurrently(),0.0);
 
     }
 
