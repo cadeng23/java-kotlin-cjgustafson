@@ -14,11 +14,13 @@ public class GoshDarnUnitTest {
     @Test public void haveBillsTrue() {
         double Crap = 120.5;
         Goshdarn instance = new Goshdarn(Crap);
+        assertEquals(true, instance.haveBills());
     }
 
     @Test public void haveBillsFalse() {
         double Crap = 120.5;
         Goshdarn instance = new Goshdarn(Crap);
+        assertEquals(false, instance.haveBills());
     }
 
     @Test public void MothlyBillsAmount(){
@@ -38,6 +40,10 @@ public class GoshDarnUnitTest {
     @Test public void setCrapLevel() {
         double Crap = 120.5;
         Goshdarn instance = new Goshdarn(Crap);
+        assertEquals(120.5, instance.getTotalCrap(), 120.5);
+        double newCrapLevel = 250.5;
+        instance.setCrapLevel(newCrapLevel);
+        assertEquals(newCrapLevel, instance.getTotalCrap(),0.0);
     }
 
 }
