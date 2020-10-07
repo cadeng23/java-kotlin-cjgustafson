@@ -69,9 +69,25 @@ class Management extends Employee {
 }
 
 class callers extends Employee {
-
+  void getData3()
+  {
+   getWorker();
+   getCompany();
+   setPay(25000.0);
+   setLevel("Caller");
+   getComBased();
+   task();
+  }
 }
 
 class janitors extends Employee {
-
+  void getData4()
+  {
+   getWorker();
+   //Janitors leased from different company
+   setCompany("Cleaners for Rent");
+   setLevel("Janitor");
+   setComBased("No");
+   task();
+  }
 }
