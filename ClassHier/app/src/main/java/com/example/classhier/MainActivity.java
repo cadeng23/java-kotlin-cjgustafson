@@ -5,15 +5,15 @@ package com.example.classhier;
 
 class Employee {
 
- public String level = "CEO";
- public Double pay = 0.0;
+ public String level;
+ public Double pay;
  public Boolean comBased = true;
- public Double Commission = 1.0;
+ public Double Commission;
  // Stock Sold on the phone over the previous month
- public Double ValueSold = 0.0;
- public Double HoursWorked = 40.0;
+ public Double ValueSold;
+ public Double HoursWorked;
  //Rating on service given by customers on
- public Double SurveyRating = 3.0;
+ public Double SurveyRating;
 
  public Double getValueSold() {
   return ValueSold;
@@ -57,7 +57,6 @@ class Executive extends Employee {
   FComBased();
   task();
  }
-
 }
 
 class Management extends Employee {
@@ -88,37 +87,39 @@ class Management extends Employee {
   }
 }
 
-class callers extends Employee {
+class Caller extends Employee {
  double Val;
  double NewPay;
+ double rating;
+ public Double getPayCaller(/*Double HoursWorked, Double pay, Double ValueSold,
+                            Double SurveyRating*/) {
 
- void getData3() {
   setLevel("Caller");
   TComBased();
-  Val = setValueSold(50000.0);
-  setPay(25000.0);
-  setSurveyRating(3.5);
-  setHoursWorked(45.0);
-  task();
-  if (Val > 100000.0)
+  //Val = setValueSold(50000.0);
+  Val = getValueSold();
+  //setPay(25000.0);
+  getPay();
+  //setSurveyRating(3.5);
+  rating = getSurveyRating();
+  //setHoursWorked(45.0);
+  getHoursWorked();
+
+  if (Val > 100000.0 && rating > 3.0)
   {
    NewPay = setCommission(2.5) * setPay(25000.0);
   }
-  else if (Val > 75000.0)
+  else if (Val > 75000.0 && rating > 3.0)
   {
    NewPay = setCommission(2.0) * setPay(25000.0);
-  }
-  else if (Val > 50000.0)
-  {
-   NewPay = setCommission(1.5) * setPay(25000.0);
   }
   else
    {
    NewPay = setPay(25000.0);
   }
+  return NewPay;
  }
 }
-
 
  class cusService extends Employee {
   double Serv;
@@ -140,9 +141,14 @@ class callers extends Employee {
    {
     NewPay = setCommission(1.1) * setPay(35000.0);
    }
+   else if (Serv < 3.0)
+   {
+    NewPay = setPay(35000.0);
+   }
    else
     {
-    NewPay = setPay(35000.0);
+    String message = "There is information not being collected";
+    throw new IllegalArgumentException(message);
    }
   }
  }
